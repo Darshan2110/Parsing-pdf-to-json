@@ -2,12 +2,12 @@ import fitz  # PyMuPDF
 import re
 import json
 
-def extract_toc_from_pdf(pdf_path, output_jsonl="usb_pd_spec.jsonl", doc_title="USB Power Delivery Specification Rev X"):
+def extract_toc_from_pdf(pdf_path, output_jsonl="usb_pd_spec1.jsonl", doc_title="USB Power Delivery Specification Rev X"):
     doc = fitz.open(pdf_path)
 
     # Extract text from the first 10 pages
     toc_text = ""
-    for i in range(min(10, len(doc))):
+    for i in range(len(doc)):
         toc_text += doc[i].get_text()
 
     # Regex pattern to extract ToC entries: section_id, title, page
